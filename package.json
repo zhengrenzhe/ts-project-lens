@@ -10,7 +10,13 @@
   "keywords": [],
   "author": "Zhengrenzhe <zhengrenzhe0416@outlook.com>",
   "license": "AGPL-3.0",
+  "dependencies": {
+    "eslint": "^8.52.0",
+    "yargs": "^17.7.2"
+  },
   "devDependencies": {
+    "@types/node": "^20.8.8",
+    "@types/yargs": "^17.0.29",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.52.0",
