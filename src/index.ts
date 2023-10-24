@@ -2,8 +2,9 @@
 
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
-import { eslint } from './eslint';
-import { filePathCheck } from './utils';
+
+import { eslint } from './eslint.js';
+import { filePathCheck } from './utils.js';
 
 yargs(hideBin(process.argv))
   .command(
