@@ -1,0 +1,16 @@
+{
+  "name": "ts-lens",
+  "version": "1.0.0",
+  "description": "analyzing TypeScript project. (ESLint integrated, import/export analysis, tsc errors)",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w"
+  },
+  "keywords": [],
+  "author": "Zhengrenzhe <zhengrenzhe0416@outlook.com>",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
