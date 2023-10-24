@@ -1,8 +1,8 @@
 {
   "name": "ts-lens",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "analyzing TypeScript project. (ESLint integrated, import/export analysis, tsc errors)",
-  "main": "dist/index.js",
+  "bin": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc -w"

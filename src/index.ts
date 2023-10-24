@@ -1,2 +1,3 @@
+#!/usr/bin/env node
 
-console.log("amd yes")
+console.log("hello world")
