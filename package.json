@@ -12,7 +12,6 @@
   "author": "Zhengrenzhe <zhengrenzhe0416@outlook.com>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "boxen": "^7.1.1",
     "chalk": "4",
     "eslint": "^8.52.0",
     "yargs": "^17.7.2"
