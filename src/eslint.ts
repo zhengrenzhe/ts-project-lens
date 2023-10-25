@@ -1,14 +1,16 @@
 import boxen from 'boxen';
+import chalk from 'chalk';
 
 export function eslint(eslintConfig: string) {
   console.log(
     boxen('TS Lens', {
-      backgroundColor: '#3178c6',
-      borderStyle: 'none',
-      width: 8,
-      padding: { top: 2, bottom: 0, left: 0, right: 0 },
+      borderStyle: 'bold',
+      borderColor: '#3178c6',
+      padding: { top: 1, bottom: 1, left: 8, right: 8 },
       textAlignment: 'right',
+      float: 'center',
     }),
   );
-  console.log(eslintConfig);
+
+  console.log(chalk.white(`eslint config: ${eslintConfig}`));
 }
