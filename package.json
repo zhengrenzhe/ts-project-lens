@@ -7,7 +7,7 @@
     "build": "tsc",
     "build:watch": "tsc -w",
     "test": "npm run build",
-    "prepublish": "npm version patch"
+    "prepublishOnly": "npm version patch"
   },
   "keywords": [],
   "author": "Zhengrenzhe <zhengrenzhe0416@outlook.com>",
