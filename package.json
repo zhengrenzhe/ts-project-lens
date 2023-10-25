@@ -1,5 +1,5 @@
 {
-  "name": "ts-lens",
+  "name": "ts-project-lens",
   "version": "0.0.1",
   "description": "analyzing TypeScript project. (ESLint integrated, import/export analysis, tsc errors)",
   "bin": "dist/index.js",
