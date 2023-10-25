@@ -45,7 +45,8 @@ export function dynamicImport(
   start: string,
   moduleName: string,
   node_modules: string | undefined,
-): { version: string; module: unknown } {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): { version: string; module: any } {
   const importFrom = (() => {
     if (node_modules) {
       return path.resolve(node_modules);
