@@ -5,7 +5,8 @@
   "bin": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "test": "npm run build"
   },
   "keywords": [],
   "author": "Zhengrenzhe <zhengrenzhe0416@outlook.com>",
