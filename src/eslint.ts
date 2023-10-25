@@ -2,7 +2,7 @@ import path from 'path';
 import chalk from 'chalk';
 import { dynamicImport } from './utils';
 
-import { ESLint } from 'eslint';
+import type { ESLint } from 'eslint';
 
 async function getLintResults(
   dynamicESLint: ReturnType<typeof dynamicImport>,
