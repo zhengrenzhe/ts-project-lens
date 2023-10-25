@@ -48,7 +48,7 @@ export function dynamicImport(
 ): { version: string; module: unknown } {
   const importFrom = (() => {
     if (node_modules) {
-      return node_modules;
+      return path.resolve(node_modules);
     }
 
     const dir = walkUpFind(
