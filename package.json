@@ -10,14 +10,14 @@
   "keywords": [],
   "author": "Zhengrenzhe <zhengrenzhe0416@outlook.com>",
   "license": "AGPL-3.0",
-  "type": "module",
   "dependencies": {
     "boxen": "^7.1.1",
+    "chalk": "4",
     "eslint": "^8.52.0",
-    "yargs": "^17.7.2",
-    "chalk": "^5.3.0"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@types/eslint": "^8.44.6",
     "@types/node": "^20.8.8",
     "@types/yargs": "^17.0.29",
     "@typescript-eslint/eslint-plugin": "^6.9.0",

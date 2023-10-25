@@ -16,3 +16,70 @@ export function filePathCheck(pathStr: string | undefined): string {
 
   return path.resolve(pathStr);
 }
+
+export function fileGlobCheck(
+  basePath: string,
+  fileGlob: string | undefined,
+): string {
+  if (!fileGlob) {
+    return `${path.dirname(basePath)}/**/**`;
+  }
+  return fileGlob;
+}
+
+export function walkUpFind(
+  checker: (baseDir: string) => boolean,
+  start: string,
+) {
+  const f = start.split('/');
+  while (f.length !== 0) {
+    const baseDir = f.join('/');
+    if (checker(baseDir)) {
+      return baseDir;
+    }
+    f.pop();
+  }
+}
+
+export function dynamicImport(
+  start: string,
+  moduleName: string,
+  node_modules: string | undefined,
+): { version: string; module: unknown } {
+  const importFrom = (() => {
+    if (node_modules) {
+      return node_modules;
+    }
+
+    const dir = walkUpFind(
+      (base) => fs.existsSync(`${base}/node_modules`),
+      start,
+    );
+    if (dir) {
+      return `${dir}/node_modules`;
+    }
+  })();
+
+  if (importFrom) {
+    console.log(`import ${moduleName} from ${importFrom}`);
+
+    const modulePath = `${importFrom}/${moduleName}`;
+
+    if (fs.existsSync(modulePath)) {
+      const dynamicModule = require(modulePath);
+      if (dynamicModule) {
+        const pkgVersion = require(`${modulePath}/package.json`).version;
+        return {
+          version: pkgVersion,
+          module: dynamicModule,
+        };
+      }
+    }
+  }
+
+  console.log(`use built-in ${moduleName}`);
+  return {
+    version: require(`${moduleName}/package.json`).version,
+    module: require(moduleName),
+  };
+}

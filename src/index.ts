@@ -3,8 +3,8 @@
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { eslint } from './eslint.js';
-import { filePathCheck } from './utils.js';
+import { eslint } from './eslint';
+import { fileGlobCheck, filePathCheck } from './utils';
 
 yargs(hideBin(process.argv))
   .command(
@@ -19,12 +19,24 @@ yargs(hideBin(process.argv))
           type: 'string',
           requiresArg: true,
           description: 'eslint config file',
+        })
+        .option('file-glob', {
+          alias: 'f',
+          type: 'string',
+          description: 'lint files glob, default: "./**/**"',
+        })
+        .option('node_modules', {
+          alias: 'n',
+          type: 'string',
+          description: 'import eslint from',
         });
       return cfg;
     },
     (arg) => {
       const configPath = filePathCheck(arg.config);
-      eslint(configPath);
+      const fileGlob = fileGlobCheck(configPath, arg.fileGlob);
+      const node_modules = arg.node_modules;
+      eslint(configPath, fileGlob, node_modules);
     },
   )
   .command('ts', 'ts subcommand', (y) => {
