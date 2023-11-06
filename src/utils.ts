@@ -1,16 +1,18 @@
 import path from 'path';
 import fs from 'fs';
+import { consola } from 'consola';
+import chalk from 'chalk';
 
 export function filePathCheck(pathStr: string | undefined): string {
   if (!pathStr) {
-    console.error('文件路径不能为空');
+    consola.error('pathStr is undefined');
     process.exit(1);
   }
 
   const absPath = path.resolve(pathStr);
 
   if (!fs.existsSync(absPath)) {
-    console.error(`${absPath} 不存在`);
+    consola.error(`${absPath} not exist`);
     process.exit(1);
   }
 
@@ -62,14 +64,13 @@ export function dynamicImport(
   })();
 
   if (importFrom) {
-    console.log(`import ${moduleName} from ${importFrom}`);
-
     const modulePath = `${importFrom}/${moduleName}`;
 
     if (fs.existsSync(modulePath)) {
       const dynamicModule = require(modulePath);
       if (dynamicModule) {
         const pkgVersion = require(`${modulePath}/package.json`).version;
+        consola.success(`use ${moduleName} from ${chalk.green(importFrom)}`);
         return {
           version: pkgVersion,
           module: dynamicModule,
@@ -78,7 +79,9 @@ export function dynamicImport(
     }
   }
 
-  console.log(`use built-in ${moduleName}`);
+  consola.success(
+    `use ${moduleName} from ${chalk.green('ts-project-lens built-in')}`,
+  );
   return {
     version: require(`${moduleName}/package.json`).version,
     module: require(moduleName),
