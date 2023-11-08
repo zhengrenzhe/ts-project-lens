@@ -5,8 +5,6 @@ import { consola } from 'consola';
 import { dynamicImport } from '../utils';
 import { getLintResults } from './utils';
 
-consola.level = 999;
-
 export async function eslint(
   eslintConfig: string,
   fileGlob: string,

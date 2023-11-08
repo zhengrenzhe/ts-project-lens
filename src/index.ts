@@ -2,9 +2,12 @@
 
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
+import consola from 'consola';
 
 import { eslint } from './eslint';
 import { fileGlobCheck, filePathCheck } from './utils';
+
+consola.level = 999;
 
 yargs(hideBin(process.argv))
   .command(
